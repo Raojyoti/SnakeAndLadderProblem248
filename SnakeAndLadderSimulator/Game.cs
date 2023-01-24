@@ -92,10 +92,10 @@ namespace SnakeAndLadderSimulator
                 int option = random.Next(0, 3);
                 switch (option)
                 {
-                    case 0:
+                    case NO_PLAY:
                         Console.WriteLine("Dice value get: {0} and When No Play then player position:  {1} ", diceValue, position);
                         break;
-                    case 1:
+                    case LADDER:
                         position = position + diceValue;
                         Console.WriteLine("Dice value get: {0} and When get Ladder then player position:  {1}", diceValue, position);
                         if (position > 100)
@@ -103,7 +103,7 @@ namespace SnakeAndLadderSimulator
                             position = position - diceValue;
                         }
                         break;
-                    case 2:
+                    case SNAKE:
                         position = position - diceValue;
                         Console.WriteLine("Dice value get: {0} and When get Snake then player position:  {1} ", diceValue, position);
                         if (position < 0)
@@ -130,10 +130,10 @@ namespace SnakeAndLadderSimulator
                 diceRollCount++;
                 switch (option)
                 {
-                    case 0:
+                    case NO_PLAY:
                         Console.WriteLine("Dice value get: {0} and When No Play then player position:  {1} ", diceValue, position);
                         break;
-                    case 1:
+                    case LADDER:
                         position = position + diceValue;
                         Console.WriteLine("Dice value get: {0} and When get Ladder then player position:  {1}", diceValue, position);
                         if (position > 100)
@@ -141,7 +141,7 @@ namespace SnakeAndLadderSimulator
                             position = position - diceValue;
                         }
                         break;
-                    case 2:
+                    case SNAKE:
                         position = position - diceValue;
                         Console.WriteLine("Dice value get: {0} and When get Snake then player position:  {1} ", diceValue, position);
                         if (position < 0)
@@ -169,10 +169,10 @@ namespace SnakeAndLadderSimulator
                 diceRollCountP1++;
                 switch (option1)
                 {
-                    case 0:
+                    case NO_PLAY:
                         Console.WriteLine("Dice value get: {0} and When No Play ", diceValue1);
                         break;
-                    case 1:
+                    case LADDER:
                         positionplayer1 = positionplayer1 + diceValue1;
                         Console.WriteLine("Dice value get: {0} and When get Ladder ", diceValue1);
                         if (positionplayer1 > 100)
@@ -180,7 +180,7 @@ namespace SnakeAndLadderSimulator
                             positionplayer1 = positionplayer1 - diceValue1;
                         }
                         break;
-                    case 2:
+                    case SNAKE:
                         positionplayer1 = positionplayer1 - diceValue1;
                         Console.WriteLine("Dice value get: {0} and When get Snake ", diceValue1);
                         if (positionplayer1 < 0)
@@ -203,10 +203,10 @@ namespace SnakeAndLadderSimulator
                 diceRollCountP2++;
                 switch (option2)
                 {
-                    case 0:
+                    case NO_PLAY:
                         Console.WriteLine("Dice value get: {0} and When No Play ", diceValue2);
                         break;
-                    case 1:
+                    case LADDER:
                         positionplayer2 = positionplayer2 + diceValue2;
                         Console.WriteLine("Dice value get: {0} and When get Ladder ", diceValue2);
                         if (positionplayer2 > 100)
@@ -214,7 +214,7 @@ namespace SnakeAndLadderSimulator
                             positionplayer2 = positionplayer2 - diceValue2;
                         }
                         break;
-                    case 2:
+                    case SNAKE:
                         positionplayer2 = positionplayer2 - diceValue2;
                         Console.WriteLine("Dice value get: {0} and When get Snake ", diceValue2);
                         if (positionplayer2 < 0)
