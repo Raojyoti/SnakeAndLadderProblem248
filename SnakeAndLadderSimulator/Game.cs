@@ -161,6 +161,7 @@ namespace SnakeAndLadderSimulator
         //UC7-Play the game with two Players
         public void GamePlayWithTwoPlayers()
         {
+            Console.WriteLine("********************Game is start now and Game Play between Two player********************\n");
             while (positionplayer1 <= WINNING_POSITION && positionplayer2 <= WINNING_POSITION)
             {
                 int diceValue1 = random.Next(1, 7);
