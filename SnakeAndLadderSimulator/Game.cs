@@ -8,8 +8,10 @@ namespace SnakeAndLadderSimulator
 {
     public class Game
     {
+        //insatnce variable
         public int position = 0;
         public int player1;
+        //Constant variables
         public const int  NO_PLAY = 0;
         public const int LADDER = 1;
         public const int SNAKE = 2;
@@ -30,8 +32,7 @@ namespace SnakeAndLadderSimulator
         //UC3- Player then checks for a Option. They are No Play, Ladder or Snake.
         public void CheckOptions()
         {
-            Random random1 = new Random();
-            int option = random1.Next(0, 3);
+            int option = random.Next(0, 3);
             switch (option)
             {
                 case NO_PLAY:
@@ -53,10 +54,8 @@ namespace SnakeAndLadderSimulator
         {
             while (position != WINNING_POSITION)
             {
-                Random random = new Random();
                 int diceValue = random.Next(1, 7);
-                Random random1 = new Random();
-                int option = random1.Next(0, 3);
+                int option = random.Next(0, 3);
                 switch (option)
                 {
                     case NO_PLAY:
@@ -76,6 +75,43 @@ namespace SnakeAndLadderSimulator
                         break;
                 }
                 Console.WriteLine("player position is :" + position);
+            }
+        }
+        //UC5- Ensure the player gets to exact winning position 100.
+        public void EnsurePlayerGetExcatWinningPosition()
+        {
+            while (position != WINNING_POSITION)
+            {
+                int diceValue = random.Next(1, 7);
+                int option = random.Next(0, 3);
+                switch (option)
+                {
+                    case 0:
+                        Console.WriteLine("Dice value get: {0} and When No Play then player position:  {1} ", diceValue, position);
+                        break;
+                    case 1:
+                        position = position + diceValue;
+                        Console.WriteLine("Dice value get: {0} and When get Ladder then player position:  {1}", diceValue, position);
+                        if (position > 100)
+                        {
+                            position = position - diceValue;
+                        }
+                        break;
+                    case 2:
+                        position = position - diceValue;
+                        Console.WriteLine("Dice value get: {0} and When get Snake then player position:  {1} ", diceValue, position);
+                        if (position < 0)
+                        {
+                            position = 0;
+                        }
+                        break;
+                }
+                Console.WriteLine("player position is :" + position);
+                if (position == 100)
+                {
+                    Console.WriteLine("GAME IS OVER YOU WIN THE GAME");
+                    break;
+                }
             }
         }
     }
