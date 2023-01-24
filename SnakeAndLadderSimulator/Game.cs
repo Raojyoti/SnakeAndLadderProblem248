@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace SnakeAndLadderSimulator
         //insatnce variable
         public int position = 0;
         public int player1;
+        public int diceRollCount = 0;
         //Constant variables
         public const int  NO_PLAY = 0;
         public const int LADDER = 1;
@@ -110,6 +112,44 @@ namespace SnakeAndLadderSimulator
                 if (position == 100)
                 {
                     Console.WriteLine("GAME IS OVER YOU WIN THE GAME");
+                    break;
+                }
+            }
+        }
+        //UC6-Report the number of times the dice was played to win the game
+        public void ReportNumberOfTimesDicePlayedToWinGame()
+        {
+            while (position != WINNING_POSITION)
+            {
+                int diceValue = random.Next(1, 7);
+                int option = random.Next(0, 3);
+                diceRollCount++;
+                switch (option)
+                {
+                    case 0:
+                        Console.WriteLine("Dice value get: {0} and When No Play then player position:  {1} ", diceValue, position);
+                        break;
+                    case 1:
+                        position = position + diceValue;
+                        Console.WriteLine("Dice value get: {0} and When get Ladder then player position:  {1}", diceValue, position);
+                        if (position > 100)
+                        {
+                            position = position - diceValue;
+                        }
+                        break;
+                    case 2:
+                        position = position - diceValue;
+                        Console.WriteLine("Dice value get: {0} and When get Snake then player position:  {1} ", diceValue, position);
+                        if (position < 0)
+                        {
+                            position = 0;
+                        }
+                        break;
+                }
+                Console.WriteLine("player position: {0} and Dice Roll Count: {1} ", position, diceRollCount);
+                if (position == 100)
+                {
+                    Console.WriteLine("Game is over you won the game");
                     break;
                 }
             }
