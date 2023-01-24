@@ -9,7 +9,7 @@
             while (true)
             {
                 Console.WriteLine("Please select given options");
-                Console.WriteLine("1.Player1StartPosition\n2.Player1RollsDice\n3.PlayerThenCheckOptions\n4.PlayerReachestheWinningPosition\n5.EnsurePlayerGetExcatWinningPosition\n6.ReportNumberOfTimesDicePlayedToWinGame\n8.Exit\n");
+                Console.WriteLine("1.Player1StartPosition\n2.Player1RollsDice\n3.PlayerThenCheckOptions\n4.PlayerReachestheWinningPosition\n5.EnsurePlayerGetExcatWinningPosition\n6.ReportNumberOfTimesDicePlayedToWinGame\n7.GamePlayWithTwoPlayers\n8.Exit\n");
                 int option = Convert.ToInt32(Console.ReadLine());
                 Game game = new Game();
                 switch (option)
@@ -36,6 +36,10 @@
                         break;
                     case 6:
                         game.ReportNumberOfTimesDicePlayedToWinGame();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        game.GamePlayWithTwoPlayers();
                         break;
                     case 8:
                         Console.Clear();
